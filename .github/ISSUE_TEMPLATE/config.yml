@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Discussion
+    url: https://github.com/twentworth12/incident-command-center/discussions
+    about: Ask questions, share ideas, or discuss the project
+  - name: 📚 Documentation
+    url: https://github.com/twentworth12/incident-command-center/blob/main/CLAUDE.md
+    about: Development documentation and technical details
+  - name: 🆘 incident.io API Support
+    url: https://api-docs.incident.io/
+    about: For issues with the incident.io API itself

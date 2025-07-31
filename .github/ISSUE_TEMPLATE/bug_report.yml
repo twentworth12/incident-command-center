@@ -1,0 +1,122 @@
+name: Bug Report
+description: Report a bug or issue with the Incident Command Center
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the form below to help us understand and fix the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Press button '...'
+        3. Navigate to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead
+    validations:
+      required: true
+
+  - type: dropdown
+    id: appletv-model
+    attributes:
+      label: Apple TV Model
+      description: Which Apple TV model are you using?
+      options:
+        - Apple TV HD (4th generation)
+        - Apple TV 4K (5th generation)
+        - Apple TV 4K (6th generation)
+        - Apple TV 4K (7th generation)
+        - Other/Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tvos-version
+    attributes:
+      label: tvOS Version
+      description: Which version of tvOS are you running?
+      options:
+        - tvOS 17.0
+        - tvOS 17.1
+        - tvOS 17.2
+        - tvOS 17.3
+        - tvOS 17.4
+        - tvOS 17.5
+        - tvOS 17.6
+        - tvOS 18.0 or later
+        - Other/Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: xcode-version
+    attributes:
+      label: Xcode Version (if building from source)
+      description: What version of Xcode are you using?
+      placeholder: "e.g., 16.4"
+
+  - type: dropdown
+    id: incident-source
+    attributes:
+      label: Data Source
+      description: Are you seeing this issue with real incident.io data or mock data?
+      options:
+        - Real incident.io API data
+        - Mock data (fallback)
+        - Both
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console Logs/Error Messages
+      description: Any relevant console output or error messages (please remove any sensitive information)
+      render: text
+      placeholder: Paste any relevant logs here
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here, including screenshots if helpful
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Security
+      description: Please confirm you haven't included any sensitive information
+      options:
+        - label: I have removed any API keys, passwords, or other sensitive information from this report
+          required: true
