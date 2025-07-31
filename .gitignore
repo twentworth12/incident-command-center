@@ -1,0 +1,56 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+profile
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+
+# Security - Prevent API keys and secrets
+*.pem
+*.key
+*.p12
+*.mobileprovision
+secrets.plist
+config.plist
+
+# API Keys - Common patterns
+*api_key*
+*apikey*
+*API_KEY*
+*secret*
+*SECRET*
+*token*
+*TOKEN*
+*password*
+*PASSWORD*
+inc_*
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+.swiftpm/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
