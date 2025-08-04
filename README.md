@@ -7,15 +7,17 @@
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-tvOS-blue?logo=swift&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-**A professional incident management dashboard designed specifically for Apple TV, providing real-time monitoring of your incident.io incidents in a war room style interface.**
+**A professional incident management dashboard designed specifically for Apple TV, featuring dual themes and real-time monitoring of your incident.io incidents with war room and retro 80s NORAD command center interfaces.**
 
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Screenshots](#screenshots) • [Contributing](#contributing)
+[Features](#features) • [Themes](#themes) • [Installation](#installation) • [Usage](#usage) • [Screenshots](#screenshots) • [Contributing](#contributing)
 
 </div>
 
 ## 🎯 Overview
 
 Incident Command Center transforms your Apple TV into a powerful incident monitoring display, perfect for command centers, NOCs (Network Operations Centers), and team areas. Built with SwiftUI and optimized for tvOS, it provides an always-on view of your critical incidents with intuitive Apple TV remote navigation.
+
+**🆕 NEW**: Now featuring dual theme system with professional incident.io styling and authentic 80s Wargames/NORAD terminal aesthetics!
 
 ## ✨ Features
 
@@ -42,6 +44,31 @@ Incident Command Center transforms your Apple TV into a powerful incident monito
 - **Mock data fallback** for development and offline scenarios
 - **Intelligent error handling** with graceful degradation
 - **Efficient API usage** with proper request limiting
+- **Metrics dashboard** with 24-hour trend charts and status distribution
+- **Consistent card heights** and professional data visualization
+
+## 🎨 Themes
+
+### 🏢 **incident.io Professional Theme**
+- Clean, modern design following incident.io brand guidelines
+- Professional typography with custom serif and sans-serif fonts
+- Warm color palette with incident.io signature colors
+- Subtle shadows and rounded corners for premium feel
+- Optimized for professional command center environments
+
+### 🖥️ **Wargames 80s NORAD Theme**
+- Authentic 80s terminal aesthetic inspired by the movie "WarGames"
+- Phosphor green monospace typography on pure black background
+- Matrix/UNIX terminal styling with no rounded corners
+- Amber alerts for critical incidents (authentic 80s color)
+- Perfect for retro command centers and nostalgic monitoring setups
+- Animated cursor effects and terminal-style incident displays
+
+### ⚙️ **Theme Switching**
+- **Live theme switching** in settings with immediate preview
+- **Persistent user preferences** saved between app launches
+- **Theme-aware components** that adapt all UI elements
+- **Smooth transitions** between theme modes
 
 ## 🚀 Installation
 
@@ -120,6 +147,9 @@ xcodebuild test -project incident-overview.xcodeproj -scheme incident-overview -
 - **Auto-refresh**: Data updates every 30 seconds automatically  
 - **Last updated**: Timestamp shows when data was last refreshed
 - **Mock data mode**: Displays sample data when API is unavailable
+- **Theme selection**: Switch between incident.io and Wargames themes in settings
+- **Metrics cards**: Critical count, active incidents, resolved today, status breakdown, and 24h trends
+- **Consistent layouts**: All dashboard cards maintain uniform 200px height
 
 ## 📸 Screenshots
 
@@ -129,11 +159,14 @@ xcodebuild test -project incident-overview.xcodeproj -scheme incident-overview -
 
 ### Core Components
 
-- **`ContentView.swift`**: Main dashboard with incident grid and navigation
-- **`SettingsView.swift`**: API key configuration with keyboard input
+- **`ContentView.swift`**: Main dashboard with dual theme support and incident grid
+- **`ThemeManager.swift`**: Complete theme system with ObservableObject pattern
+- **`ThemeSelection.swift`**: Theme selection UI with live preview components
+- **`IncidentIOBrand.swift`**: Brand consistency system with colors, fonts, and styling
+- **`SettingsView.swift`**: API key configuration and theme selection interface
 - **`KeychainManager.swift`**: Secure API key storage and retrieval
-- **`IncidentService.swift`**: API integration with mock data fallback
-- **`Incident.swift`**: Data models for incident.io API v2
+- **`IncidentService.swift`**: API integration with enhanced security and mock data fallback
+- **`Incident.swift`**: Data models with sentence case conversion extensions
 
 ### Key Technologies
 
@@ -149,6 +182,17 @@ xcodebuild test -project incident-overview.xcodeproj -scheme incident-overview -
 - No network communication without user consent
 - Graceful handling of API failures
 - No sensitive data in logs or crash reports
+- Enhanced error logging with sanitized messages
+- Production-ready security best practices
+
+### Recent Updates
+
+- ✨ **Dual Theme System**: Switch between professional and retro 80s themes
+- 🎨 **Brand Consistency**: Complete IncidentIOBrand design system
+- 🔧 **UI Improvements**: Fixed grey borders and consistent card heights
+- 📊 **Enhanced Charts**: Improved 24-hour trend visualization with sample data
+- 🔒 **Security Enhancements**: Removed sensitive data from logging
+- 🎯 **UX Polish**: Sentence case conversion and improved information hierarchy
 
 ## 🤝 Contributing
 
