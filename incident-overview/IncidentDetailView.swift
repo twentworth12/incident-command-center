@@ -15,7 +15,7 @@ struct IncidentDetailView: View {
             VStack(alignment: .leading, spacing: 20) {
                 // Header
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(incident.name)
+                    Text(incident.displayName)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
@@ -25,7 +25,7 @@ struct IncidentDetailView: View {
                             Circle()
                                 .fill(statusColor)
                                 .frame(width: 8, height: 8)
-                            Text(incident.safeStatus.name)
+                            Text(incident.safeStatus.displayName)
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                         }
@@ -63,7 +63,7 @@ struct IncidentDetailView: View {
                         DetailRow(title: "Last Updated", value: DateFormatter.longStyle.string(from: updatedDate))
                     }
                     
-                    if let summary = incident.summary, !summary.isEmpty {
+                    if let summary = incident.displaySummary, !summary.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Summary")
                                 .font(.headline)

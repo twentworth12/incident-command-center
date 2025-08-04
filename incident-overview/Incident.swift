@@ -75,6 +75,15 @@ struct User: Codable, Hashable {
     let id: String
 }
 
+// MARK: - String Extension for Sentence Case
+extension String {
+    /// Converts text to sentence case (first letter capitalized, rest lowercase)
+    var sentenceCase: String {
+        guard !isEmpty else { return self }
+        return prefix(1).uppercased() + dropFirst().lowercased()
+    }
+}
+
 extension Incident {
     var formattedCreatedDate: Date? {
         let formatter = ISO8601DateFormatter()
@@ -106,5 +115,37 @@ extension Incident {
         
         // Return the assignee wrapped in the old IncidentRole structure
         return leadAssignment?.assignee != nil ? IncidentRole(user: leadAssignment?.assignee) : nil
+    }
+    
+    // MARK: - Sentence Case Properties
+    /// Incident name in sentence case
+    var displayName: String {
+        return name.sentenceCase
+    }
+    
+    /// Summary in sentence case
+    var displaySummary: String? {
+        return summary?.sentenceCase
+    }
+}
+
+extension IncidentStatus {
+    /// Status name in sentence case
+    var displayName: String {
+        return name.sentenceCase
+    }
+}
+
+extension IncidentSeverity {
+    /// Severity name in sentence case  
+    var displayName: String {
+        return name.sentenceCase
+    }
+}
+
+extension User {
+    /// User name in sentence case
+    var displayName: String? {
+        return name?.sentenceCase
     }
 }

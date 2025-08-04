@@ -19,13 +19,13 @@ struct IncidentRowView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 // Incident name
-                Text(incident.name)
+                Text(incident.displayName)
                     .font(.headline)
                     .lineLimit(2)
                 
                 // Status and severity
                 HStack(spacing: 8) {
-                    Text(incident.safeStatus.name)
+                    Text(incident.safeStatus.displayName)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 2)

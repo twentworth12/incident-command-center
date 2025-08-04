@@ -45,8 +45,7 @@ class IncidentService: ObservableObject {
             
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode != 200 {
-                    let responseBody = String(data: data, encoding: .utf8) ?? "No response body"
-                    errorMessage = "HTTP Error \(httpResponse.statusCode): \(responseBody)"
+                    errorMessage = "HTTP Error \(httpResponse.statusCode)"
                     isLoading = false
                     return
                 }
@@ -71,9 +70,9 @@ class IncidentService: ObservableObject {
                 .prefix(10))
             
         } catch let decodingError as DecodingError {
-            errorMessage = "JSON Decode Error: \(decodingError.localizedDescription)"
+            errorMessage = "Unable to parse response data"
         } catch {
-            errorMessage = "Network Error: \(error.localizedDescription)"
+            errorMessage = "Network connection failed"
         }
         */
         

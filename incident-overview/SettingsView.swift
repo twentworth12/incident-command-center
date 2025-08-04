@@ -39,14 +39,16 @@ struct SettingsView: View {
                         onTest: testConnection
                     )
                     
+                    ThemeSelectionSection()
+                    
                     Spacer(minLength: 100)
                 }
                 .padding(.horizontal, 60)
                 .padding(.vertical, 40)
             }
-            .background(Color.black)
+            .background(Color.incidentSand)
         }
-        .background(Color.black)
+        .background(Color.incidentSand)
         .onAppear {
             loadExistingAPIKey()
         }
@@ -154,18 +156,18 @@ struct SettingsHeaderView: View {
                 HStack(spacing: 16) {
                     Image(systemName: "chevron.backward")
                         .font(.system(size: 32, weight: .bold))
-                    Text("BACK TO DASHBOARD")
-                        .font(.system(size: 32, weight: .bold, design: .monospaced))
+                    Text("Back to dashboard")
+                        .font(.incidentTVCaption())
                 }
-                .foregroundColor(.white)
+                .foregroundColor(.incidentCharcoal)
                 .padding(.horizontal, 32)
                 .padding(.vertical, 20)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(isBackButtonFocused ? Color.blue : Color.gray.opacity(0.8))
+                    RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                        .fill(isBackButtonFocused ? Color.incidentAlarmalade : Color.incidentSand.opacity(0.8))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(isBackButtonFocused ? Color.white : Color.clear, lineWidth: 4)
+                            RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                .stroke(isBackButtonFocused ? Color.incidentWhite : Color.clear, lineWidth: 4)
                         )
                 )
             }
@@ -176,13 +178,13 @@ struct SettingsHeaderView: View {
             
             Spacer()
             
-            Text("SETTINGS")
-                .font(.system(size: 64, weight: .black, design: .default))
-                .foregroundStyle(Color.incidentGradient)
+            Text("Settings")
+                .font(.incidentTVTitle())
+                .foregroundColor(.incidentAlarmalade)
         }
         .padding(.horizontal, 60)
         .padding(.vertical, 32)
-        .background(Color.black)
+        .background(Color.incidentSand)
     }
 }
 
@@ -198,13 +200,13 @@ struct APIConfigurationSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
             VStack(alignment: .leading, spacing: 20) {
-                Text("INCIDENT.IO API CONFIGURATION")
-                    .font(.system(size: 40, weight: .black, design: .monospaced))
-                    .foregroundColor(.white)
+                Text("Incident.io API configuration")
+                    .font(.incidentTVHeading())
+                    .foregroundColor(.incidentCharcoal)
                 
                 Text("Enter your incident.io API key to connect to your organization's incidents. You can find your API key in the incident.io dashboard under Settings > API Keys.")
-                    .font(.system(size: 24, weight: .medium))
-                    .foregroundColor(.white.opacity(0.8))
+                    .font(.incidentTVBody())
+                    .foregroundColor(.incidentCharcoal.opacity(0.8))
                     .fixedSize(horizontal: false, vertical: true)
             }
             
@@ -234,27 +236,27 @@ struct APIKeyInputSection: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("API KEY")
-                .font(.system(size: 28, weight: .bold, design: .monospaced))
-                .foregroundColor(.white)
+            Text("API key")
+                .font(.incidentSansHeading())
+                .foregroundColor(.incidentCharcoal)
             
             Text("Navigate to the text field below and press the center button to activate the keyboard. In Simulator: use Hardware > Keyboard > Toggle Software Keyboard or ⌘K")
-                .font(.system(size: 18, weight: .medium))
-                .foregroundColor(.white.opacity(0.7))
+                .font(.incidentSansCaption())
+                .foregroundColor(.incidentCharcoal.opacity(0.7))
                 .fixedSize(horizontal: false, vertical: true)
             
             TextField("Paste your incident.io API key here", text: $apiKey)
-                .font(.system(size: 24, weight: .medium, design: .monospaced))
+                .font(.incidentMono())
                 .padding(24)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white.opacity(isTextFieldFocused ? 0.15 : 0.1))
+                    RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                        .fill(Color.incidentSand.opacity(isTextFieldFocused ? 0.15 : 0.1))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(isTextFieldFocused ? Color.incidentOrange : Color.white.opacity(0.3), lineWidth: isTextFieldFocused ? 4 : 2)
+                            RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                .stroke(isTextFieldFocused ? Color.incidentAlarmalade : Color.incidentWhite.opacity(0.3), lineWidth: isTextFieldFocused ? 4 : 2)
                         )
                 )
-                .foregroundColor(.white)
+                .foregroundColor(.incidentCharcoal)
                 .textFieldStyle(.plain) // Use plain style for tvOS compatibility
                 .keyboardType(.asciiCapable) // Better for API keys
                 .autocorrectionDisabled(true) // Disable autocorrection for API keys
@@ -276,10 +278,10 @@ struct APIKeyInputSection: View {
                 HStack(spacing: 12) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 20))
-                        .foregroundColor(.green)
+                        .foregroundColor(.incidentResolved)
                     Text("API key entered (\(String(apiKey.prefix(8)))...)")
-                        .font(.system(size: 20, weight: .medium, design: .monospaced))
-                        .foregroundColor(.green)
+                        .font(.incidentSansBody())
+                        .foregroundColor(.incidentResolved)
                 }
             }
         }
@@ -301,27 +303,27 @@ struct APIActionButtons: View {
                     HStack(spacing: 16) {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 28, weight: .bold))
-                        Text("SAVE API KEY")
-                            .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        Text("Save API key")
+                            .font(.incidentSansHeading())
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(.incidentCharcoal)
                     .padding(.horizontal, 40)
                     .padding(.vertical, 20)
                     .background(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        isSaveButtonFocused ? Color.incidentOrange : Color.incidentOrange.opacity(0.8),
-                                        isSaveButtonFocused ? Color.incidentYellow : Color.incidentYellow.opacity(0.8)
+                                        isSaveButtonFocused ? Color.incidentAlarmalade : Color.incidentAlarmalade.opacity(0.8),
+                                        isSaveButtonFocused ? Color.incidentMajor : Color.incidentMajor.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
                             .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(isSaveButtonFocused ? Color.white : Color.clear, lineWidth: 4)
+                                RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                    .stroke(isSaveButtonFocused ? Color.incidentWhite : Color.clear, lineWidth: 4)
                             )
                     )
                 }
@@ -342,18 +344,18 @@ struct APIActionButtons: View {
                             Image(systemName: "network")
                                 .font(.system(size: 28, weight: .bold))
                         }
-                        Text(isTestingConnection ? "TESTING..." : "TEST CONNECTION")
-                            .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        Text(isTestingConnection ? "Testing..." : "Test connection")
+                            .font(.incidentSansHeading())
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(.incidentCharcoal)
                     .padding(.horizontal, 40)
                     .padding(.vertical, 20)
                     .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(isTestButtonFocused ? Color.blue : Color.blue.opacity(0.8))
+                        RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                            .fill(isTestButtonFocused ? Color.incidentMinor : Color.incidentMinor.opacity(0.8))
                             .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(isTestButtonFocused ? Color.white : Color.clear, lineWidth: 4)
+                                RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                    .stroke(isTestButtonFocused ? Color.incidentWhite : Color.clear, lineWidth: 4)
                             )
                     )
                 }
@@ -379,18 +381,18 @@ struct APIStatusMessages: View {
                 HStack(spacing: 16) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 32))
-                        .foregroundColor(.green)
+                        .foregroundColor(.incidentResolved)
                     Text("API key saved successfully!")
-                        .font(.system(size: 28, weight: .bold, design: .monospaced))
-                        .foregroundColor(.green)
+                        .font(.incidentSansHeading())
+                        .foregroundColor(.incidentResolved)
                 }
                 .padding(24)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.green.opacity(0.1))
+                    RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                        .fill(Color.incidentResolved.opacity(0.1))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.green.opacity(0.5), lineWidth: 2)
+                            RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                .stroke(Color.incidentResolved.opacity(0.5), lineWidth: 2)
                         )
                 )
             }
@@ -401,15 +403,15 @@ struct APIStatusMessages: View {
                         .font(.system(size: 32))
                         .foregroundColor(.red)
                     Text("Failed to save API key. Please try again.")
-                        .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        .font(.incidentSansHeading())
                         .foregroundColor(.red)
                 }
                 .padding(24)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
                         .fill(Color.red.opacity(0.1))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
+                            RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
                                 .stroke(Color.red.opacity(0.5), lineWidth: 2)
                         )
                 )
@@ -419,18 +421,18 @@ struct APIStatusMessages: View {
                 HStack(spacing: 16) {
                     Image(systemName: testResult.contains("Success") ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                         .font(.system(size: 32))
-                        .foregroundColor(testResult.contains("Success") ? .green : .orange)
+                        .foregroundColor(testResult.contains("Success") ? .incidentResolved : .incidentAlarmalade)
                     Text(testResult)
-                        .font(.system(size: 28, weight: .bold, design: .monospaced))
-                        .foregroundColor(testResult.contains("Success") ? .green : .orange)
+                        .font(.incidentSansHeading())
+                        .foregroundColor(testResult.contains("Success") ? .incidentResolved : .incidentAlarmalade)
                 }
                 .padding(24)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill((testResult.contains("Success") ? Color.green : Color.orange).opacity(0.1))
+                    RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                        .fill((testResult.contains("Success") ? Color.incidentResolved : Color.incidentAlarmalade).opacity(0.1))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke((testResult.contains("Success") ? Color.green : Color.orange).opacity(0.5), lineWidth: 2)
+                            RoundedRectangle(cornerRadius: IncidentIOBrand.CornerRadius.large)
+                                .stroke((testResult.contains("Success") ? Color.incidentResolved : Color.incidentAlarmalade).opacity(0.5), lineWidth: 2)
                         )
                 )
             }
