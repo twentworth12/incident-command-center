@@ -153,7 +153,23 @@ xcodebuild test -project incident-overview.xcodeproj -scheme incident-overview -
 
 ## 📸 Screenshots
 
-*Screenshots coming soon - the app displays a professional war room style interface with incident tiles, status indicators, and navigation optimized for large screen viewing.*
+### 🖥️ Wargames 80s NORAD Theme
+Experience the authentic retro terminal aesthetic inspired by the classic 1983 movie "WarGames":
+
+![Wargames Theme Screenshot](screenshots/wargames-theme.png)
+
+*Featuring phosphor green monospace typography, terminal-style incident tiles, and authentic 80s NORAD command center styling with critical incident warnings.*
+
+### 🏢 incident.io Professional Theme
+*(Screenshot coming soon - clean, modern design with incident.io branding)*
+
+### ✨ Key Visual Features
+- **Terminal-style incident tiles** with monospace fonts and green phosphor colors
+- **NORAD Defense Computer Network** header with authentic 80s styling
+- **Critical incident warnings** with amber alerts and flashing indicators
+- **Status-focused information hierarchy** with incident IDs and priority levels
+- **Grid-based terminal layout** optimized for Apple TV viewing distances
+- **Authentic cursor effects** and terminal prompt styling
 
 ## 🛠️ Technical Architecture
 
